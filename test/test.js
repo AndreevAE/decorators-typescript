@@ -2,7 +2,7 @@ var assert = require("assert");
 var lib = require("../lib");
 var sinon = require("sinon");
 
-describe("debounce", function() {
+describe("debounce leading", function() {
   before(function() {
     this.clock = sinon.useFakeTimers();
   });
@@ -28,7 +28,7 @@ describe("debounce", function() {
     }, 100); // игнор (рановато)
     setTimeout(function() {
       f(4);
-    }, 1100); // выполнится (таймаут прошёл)
+    }, 1200); // выполнится (таймаут прошёл)
     setTimeout(function() {
       f(5);
     }, 1500); // игнор
@@ -45,6 +45,54 @@ describe("debounce", function() {
     };
 
     obj.f = lib.debounce(obj.f, 1000);
+    obj.f("test");
+  });
+
+});
+
+describe("debounce trailing", function() {
+  before(function() {
+    this.clock = sinon.useFakeTimers();
+  });
+
+  after(function() {
+    this.clock.restore();
+  });
+
+  it("вызывает функцию не чаще чем раз в ms миллисекунд", function() {
+    var log = "";
+
+    function f(a) {
+      log += a;
+    }
+
+    f = lib.debounce(f, 1000, true);
+
+    f(1); // выполнится сразу же
+    f(2); // игнор
+
+    setTimeout(function() {
+      f(3);
+    }, 100); // игнор (рановато)
+    setTimeout(function() {
+      f(4);
+    }, 1200); // выполнится (таймаут прошёл)
+    setTimeout(function() {
+      f(5);
+    }, 1500); // игнор
+
+    this.clock.tick(5000);
+    assert.equal(log, "35");
+  });
+
+  it("сохраняет контекст вызова", function() {
+    var obj = {
+      f: function() {
+        assert.equal(this, obj);
+      }
+    };
+
+    obj.f = lib.debounce(obj.f, 1000, true);
     obj.f("test");
   });
 
