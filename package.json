@@ -2,9 +2,9 @@
   "name": "decorators-typescript",
   "version": "1.0.0",
   "description": "decorators for time delay functions on typescript",
-  "main": "libDebounceThrottle.js",
+  "main": "lib.js",
   "scripts": {
-    "test": "test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/AndreevAE/decorators-typescript#readme",
   "devDependencies": {
     "eslint": "^3.11.1",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.6"
   }
 }
