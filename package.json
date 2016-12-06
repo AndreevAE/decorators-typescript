@@ -1,0 +1,30 @@
+{
+  "name": "decorators-typescript",
+  "version": "1.0.0",
+  "description": "decorators for time delay functions on typescript",
+  "main": "libDebounceThrottle.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreevAE/decorators-typescript.git"
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "decorator",
+    "debounce",
+    "throttle"
+  ],
+  "author": "Alexander Andreev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AndreevAE/decorators-typescript/issues"
+  },
+  "homepage": "https://github.com/AndreevAE/decorators-typescript#readme",
+  "devDependencies": {
+    "eslint": "^3.11.1",
+    "mocha": "^3.2.0"
+  }
+}
