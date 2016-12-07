@@ -1,4 +1,4 @@
-import { debounce, throttle } from '../decorators';
+import { _debounce, _throttle } from '../decorators';
 
 export class Test {
 
@@ -8,12 +8,12 @@ export class Test {
 
   log: string;
 
-  @debounce(1000)
+  @_debounce(1000)
   testDebounce() {
     this.log += "Debounce";
   }
 
-  @throttle(1000)
+  @_throttle(1000)
   testThrottle() {
     this.log += "Throttle";
   }

@@ -4,6 +4,7 @@
   "description": "decorators for time delay functions on typescript",
   "main": "lib.js",
   "scripts": {
+    "start": "webpack --config webpack.config.js",
     "test": "mocha"
   },
   "repository": {

@@ -1,5 +1,5 @@
 var assert = require("assert");
-var lib = require("../lib");
+var lib = require("../decorators");
 var sinon = require("sinon");
 
 describe("debounce leading", function() {
